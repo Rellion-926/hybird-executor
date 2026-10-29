@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "symbol": "fused_qknorm_rope",
+  "target": "v69",
+  "arguments": [
+    {"name": "q", "direction": "input", "dtype": "fp16", "rank": 4, "shape": [1, "S", 32, 128], "layout": "contiguous"},
+    {"name": "k", "direction": "input", "dtype": "fp16", "rank": 4, "shape": [1, "S", 8, 128], "layout": "contiguous"},
+    {"name": "gamma_q", "direction": "input", "dtype": "fp16", "rank": 1, "shape": [128], "layout": "contiguous"},
+    {"name": "gamma_k", "direction": "input", "dtype": "fp16", "rank": 1, "shape": [128], "layout": "contiguous"},
+    {"name": "sin", "direction": "input", "dtype": "fp32", "rank": 2, "shape": ["S", 64], "layout": "contiguous"},
+    {"name": "cos", "direction": "input", "dtype": "fp32", "rank": 2, "shape": ["S", 64], "layout": "contiguous"},
+    {"name": "combined", "direction": "output", "dtype": "fp16", "rank": 4, "shape": [1, "S", 40, 128], "layout": "contiguous"}
+  ],
+  "program_ids": ["token", "combined_head"]
+}

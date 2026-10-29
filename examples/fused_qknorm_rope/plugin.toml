@@ -1,0 +1,34 @@
+schema_version = 1
+
+[plugin]
+name = "fused_qknorm_rope"
+kind = "mlir"
+package_name = "FusedMlirPackage"
+interface_provider = "FusedMlirPackageInterfaceProvider"
+op_type = "FusedQKNormRoPE"
+
+[target]
+default_arch = "v69"
+supported = ["v69"]
+
+[graph]
+generator = "graph/generate_onnx.py"
+custom_domain = "GraphAgent"
+
+[op_package]
+xml = "config/FusedMlirPackage.xml"
+interface_source = "src/PackageInterface.cpp"
+implementation_source = "src/ops/FusedQKNormRoPE.cpp"
+
+[kernel]
+symbol = "fused_qknorm_rope"
+source = "kernel/compile.py"
+abi = "kernel/abi.json"
+build_metadata = "kernel/build.json"
+prebuilt_v69 = "kernel/prebuilt/v69/kernel.o"
+undefined_symbols = ["free", "malloc"]
+
+[validation]
+reference = "reference/reference.py"
+atol = 0.005
+rtol = 0.005

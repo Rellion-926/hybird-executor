@@ -1,0 +1,11 @@
+This project provides independent integration templates for user-installed
+Qualcomm QAIRT/QNN and Hexagon toolchains. Qualcomm SDK binaries are not part
+of this repository.
+
+The QNN compilation organization is informed by publicly available QNN
+OpPackage examples and the mllm ecosystem. The public CustomAdd template does
+not include mllm RMSNorm or RoPE source.
+
+Hexagon-MLIR/Triton components are external development dependencies in source
+mode. Generated kernel object publication remains subject to the provenance
+and license review described in PUBLICATION.md.

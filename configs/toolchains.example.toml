@@ -1,0 +1,12 @@
+[toolchains]
+qairt_sdk_root = "/path/to/qairt"
+hexagon_sdk_root = "/path/to/Hexagon_SDK"
+hexagon_tools_root = "/path/to/HEXAGON_Tools/19.0.04/Tools"
+android_ndk_root = "/path/to/android-ndk"
+
+# Optional: required only by --kernel-mode source.
+hexagon_mlir_root = "/path/to/hexagon-mlir"
+hexagon_mlir_python = "/path/to/hexagon-mlir-env/bin/python"
+
+[device]
+adb_serial = ""

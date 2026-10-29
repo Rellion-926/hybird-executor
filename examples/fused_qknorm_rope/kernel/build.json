@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "target": "v69",
+  "compiler": "Hexagon-MLIR triton_htp_compile",
+  "source": "kernel.py",
+  "verified_device": "SM8475 HTP V69",
+  "known_undefined_symbols": ["malloc", "free"],
+  "known_limitation": "The QNN adapter invokes one program per token and combined head (S*40 calls)."
+}

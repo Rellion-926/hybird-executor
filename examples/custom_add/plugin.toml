@@ -1,0 +1,26 @@
+schema_version = 1
+
+[plugin]
+name = "custom_add"
+kind = "cpp"
+package_name = "CustomOpPackage"
+interface_provider = "CustomOpPackageInterfaceProvider"
+op_type = "CustomAdd"
+
+[target]
+default_arch = "v69"
+supported = ["v69"]
+
+[graph]
+generator = "graph/generate_onnx.py"
+custom_domain = "CustomOpPackage"
+
+[op_package]
+xml = "config/CustomOpPackage.xml"
+interface_source = "src/PackageInterface.cpp"
+implementation_source = "src/ops/CustomOp.cpp"
+
+[validation]
+reference = "reference/reference.py"
+atol = 1.0e-6
+rtol = 1.0e-6

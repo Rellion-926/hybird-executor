@@ -1,0 +1,34 @@
+schema_version = 1
+
+[plugin]
+name = "vector_add_mlir"
+kind = "mlir"
+package_name = "MlirBridgePackage"
+interface_provider = "MlirBridgePackageInterfaceProvider"
+op_type = "VectorAddMlir"
+
+[target]
+default_arch = "v69"
+supported = ["v69"]
+
+[graph]
+generator = "graph/generate_onnx.py"
+custom_domain = "GraphAgent"
+
+[op_package]
+xml = "config/MlirBridgePackage.xml"
+interface_source = "src/PackageInterface.cpp"
+implementation_source = "src/ops/VectorAddMlir.cpp"
+
+[kernel]
+symbol = "vector_add_mlir"
+source = "kernel/compile.py"
+abi = "kernel/abi.json"
+build_metadata = "kernel/build.json"
+prebuilt_v69 = "kernel/prebuilt/v69/kernel.o"
+undefined_symbols = []
+
+[validation]
+reference = "reference/reference.py"
+atol = 1.0e-6
+rtol = 1.0e-6

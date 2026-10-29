@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "name": "fused_qk_norm_rope_v1",
+  "layout": "BSHD",
+  "inputs": {
+    "q": {"shape": [1, "S", 32, 128], "dtype": "float16"},
+    "k": {"shape": [1, "S", 8, 128], "dtype": "float16"},
+    "gamma_q": {"shape": [128], "dtype": "float16"},
+    "gamma_k": {"shape": [128], "dtype": "float16"},
+    "sin": {"shape": ["S", 64], "dtype": "float32"},
+    "cos": {"shape": ["S", 64], "dtype": "float32"}
+  },
+  "physical_output": {"combined": {"shape": [1, "S", 40, 128], "dtype": "float16"}},
+  "logical_outputs": {
+    "q_out": {"slice": "combined[:,:,0:32,:]", "dtype": "float16"},
+    "k_out": {"slice": "combined[:,:,32:40,:]", "dtype": "float16"}
+  },
+  "epsilon": 1e-6,
+  "semantics": {
+    "rms_reduction_dtype": "float32",
+    "rmsnorm_boundary_dtype": "float16",
+    "rope_compute_dtype": "float32",
+    "rotate_half": "concat(-x[...,64:128], x[...,0:64])"
+  },
+  "tolerance": {"atol": 0.005, "rtol": 0.005}
+}

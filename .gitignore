@@ -1,0 +1,46 @@
+# Generated public build artifacts
+/build/
+/dist/
+/out/
+/.cache/
+/.venv/
+/.pytest_cache/
+**/__pycache__/
+*.py[cod]
+
+# Local toolchain and device configuration
+/toolchains.toml
+/.env
+
+# Internal experiment provenance retained locally but not published
+/deploy/
+/executor/
+/runs/
+/contracts/
+/references/
+/docs/2026-10-27-*.md
+/docs/2026-10-29-public-*.md
+/tests/test_fused_qk_norm_rope_reference.py
+/tools/analyze_v69_baselines.py
+/tools/compare_fused_qk_norm_rope.py
+/tools/generate_fused_qk_norm_rope_vectors.py
+/references/fused_qk_norm_rope/vectors_*/
+
+# Generated models, outputs, logs, and SDK/runtime artifacts
+*.so
+*.bin
+*.raw
+*.log
+*.onnx
+*.cpp.generated
+*.d
+
+# Object files are ignored except explicitly manifested MLIR prebuilts
+*.o
+!templates/**/kernel/prebuilt/**/*.o
+!examples/**/kernel/prebuilt/**/*.o
+
+# macOS and editor state
+.DS_Store
+.vscode/
+.idea/

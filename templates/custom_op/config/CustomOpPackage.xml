@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpDefCollection PackageName="CustomOpPackage" Domain="CustomOpPackage" Version="1.0">
+  <OpDefList>
+    <OpDef>
+      <Name>CustomAdd</Name>
+      <Description><Content>Template FP32 elementwise addition</Content></Description>
+      <Input><Name>lhs</Name><Mandatory>true</Mandatory><Datatype>QNN_DATATYPE_FLOAT_32</Datatype><Shape><Rank>4D</Rank><Layout>NHWC</Layout><Text>[1,1,1,N]</Text></Shape></Input>
+      <Input><Name>rhs</Name><Mandatory>true</Mandatory><Datatype>QNN_DATATYPE_FLOAT_32</Datatype><Shape><Rank>4D</Rank><Layout>NHWC</Layout><Text>[1,1,1,N]</Text></Shape></Input>
+      <Output><Name>out</Name><Mandatory>true</Mandatory><Datatype>QNN_DATATYPE_FLOAT_32</Datatype><Shape><Rank>4D</Rank><Layout>NHWC</Layout><Text>[1,1,1,N]</Text></Shape></Output>
+      <SupportedBackend>HTP</SupportedBackend>
+    </OpDef>
+  </OpDefList>
+</OpDefCollection>

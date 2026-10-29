@@ -1,0 +1,8 @@
+[target]
+name = "v69"
+hexagon_arch = 69
+android_api = 21
+qnn_backend = "libQnnHtp.so"
+qnn_prepare = "libQnnHtpPrepare.so"
+qnn_stub = "libQnnHtpV69Stub.so"
+qnn_skel = "libQnnHtpV69Skel.so"

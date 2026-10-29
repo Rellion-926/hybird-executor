@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "qnn-hexagon-hybrid-executor"
+version = "0.1.0"
+description = "Manifest-driven QNN HTP Custom Op and Hexagon-MLIR bridge templates"
+requires-python = ">=3.9"
+dependencies = []
+
+[project.optional-dependencies]
+graph = ["numpy>=1.24,<2", "onnx>=1.16,<2"]
+dev = ["pytest>=7"]
+
+[project.scripts]
+hyexec = "hybrid_executor.cli:main"
+
+[tool.setuptools]
+packages = ["hybrid_executor"]

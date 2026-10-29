@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpDefCollection PackageName="FusedMlirPackage" Domain="GraphAgent" Version="1.0">
+  <OpDefList>
+    <OpDef>
+      <Name>FusedQKNormRoPE</Name>
+      <Description><Content>Single-output Q/K RMSNorm plus rotate-half RoPE lowered by Hexagon-MLIR</Content></Description>
+      <Input><Name>q</Name><Mandatory>true</Mandatory><Datatype>QNN_DATATYPE_FLOAT_16</Datatype><Shape><Rank>4D</Rank><Layout>NHWC</Layout><Text>[B,S,32,128]</Text></Shape></Input>
+      <Input><Name>k</Name><Mandatory>true</Mandatory><Datatype>QNN_DATATYPE_FLOAT_16</Datatype><Shape><Rank>4D</Rank><Layout>NHWC</Layout><Text>[B,S,8,128]</Text></Shape></Input>
+      <Input><Name>gamma_q</Name><Mandatory>true</Mandatory><Datatype>QNN_DATATYPE_FLOAT_16</Datatype><Shape><Rank>1D</Rank><Text>[128]</Text></Shape></Input>
+      <Input><Name>gamma_k</Name><Mandatory>true</Mandatory><Datatype>QNN_DATATYPE_FLOAT_16</Datatype><Shape><Rank>1D</Rank><Text>[128]</Text></Shape></Input>
+      <Input><Name>sin</Name><Mandatory>true</Mandatory><Datatype>QNN_DATATYPE_FLOAT_32</Datatype><Shape><Rank>2D</Rank><Text>[S,64]</Text></Shape></Input>
+      <Input><Name>cos</Name><Mandatory>true</Mandatory><Datatype>QNN_DATATYPE_FLOAT_32</Datatype><Shape><Rank>2D</Rank><Text>[S,64]</Text></Shape></Input>
+      <Output><Name>combined</Name><Mandatory>true</Mandatory><Datatype>QNN_DATATYPE_FLOAT_16</Datatype><Shape><Rank>4D</Rank><Layout>NHWC</Layout><Text>[B,S,40,128]</Text></Shape></Output>
+      <SupportedBackend>HTP</SupportedBackend>
+    </OpDef>
+  </OpDefList>
+</OpDefCollection>

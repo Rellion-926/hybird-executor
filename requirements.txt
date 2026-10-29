@@ -1,0 +1,5 @@
+# Host control-plane code uses the Python standard library.
+# Graph generators additionally require:
+numpy>=1.24,<2
+onnx>=1.16,<2
+
